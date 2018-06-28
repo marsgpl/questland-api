@@ -4,7 +4,7 @@
 
     api: 42080
 
-### marsgpl:
+### start:
 
     cd ~/projects/questland/api
 
@@ -18,7 +18,7 @@
 
     docker-compose rm --stop --force api
 
-### marsgpl mongo:
+### mongo:
 
     docker exec -it questland_mongo_1 mongo admin
         db.createUser({ user:"root", pwd:"ofvi8h8gASvihnf9g8h", roles:[{role:"userAdminAnyDatabase",db:"admin"},{role:"clusterAdmin",db:"admin"},{role:"readAnyDatabase",db:"admin"}] })
