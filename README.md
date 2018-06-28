@@ -31,3 +31,7 @@
 
     docker exec -it questland_mongo_1 mongo -u reforge -p d0s9hf5SDJgDH83585 reforge
         show collections
+
+### update:
+
+    cd ~/projects/questland/api && lol upd && ssh eki@b1.eki.one 'cd questland/api && git pull'
