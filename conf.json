@@ -1,0 +1,22 @@
+{
+    "mongoose": {
+        "url": "mongodb://reforge:d0s9hf5SDJgDH83585@mongo:27017/reforge",
+        "options": {
+            "autoIndex": false,
+            "autoReconnect": true,
+            "reconnectTries": 100500,
+            "reconnectInterval": 500
+        }
+    },
+    "express": {
+        "params": {
+            "case sensitive routing": true,
+            "strict routing": true,
+            "x-powered-by": false
+        },
+        "listen": {
+            "interface": "0.0.0.0",
+            "port": 42080
+        }
+    }
+}

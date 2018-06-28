@@ -1,0 +1,12 @@
+{
+  "name": "questland-api",
+  "version": "1.0.0",
+  "description": "Questland API",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": "git@github.com:marsgpl/questland-api.git",
+  "dependencies": {
+    "express": "4.16.3",
+    "mongoose": "5.1.2"
+  }
+}
