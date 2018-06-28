@@ -9,5 +9,12 @@ $(function() {
 
     $.get("/reforge/api/event?ts=" + Date.now(), function(config) {
         var myChart = new Chart(ctx, config);
+
+        $("#toggle").click(function() {
+            myChart.data.datasets.forEach(function(ds) {
+                ds.hidden = !ds.hidden;
+            });
+            myChart.update();
+        });
     });
 });
