@@ -31,6 +31,7 @@
 
     docker exec -it questland_mongo_1 mongo -u reforge -p d0s9hf5SDJgDH83585 reforge
         show collections
+        db.users.ensureIndex({ userId:1 }, { unique:true })
 
 ### update:
 
