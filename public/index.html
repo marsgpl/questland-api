@@ -38,12 +38,24 @@
                 z-index: 2;
                 padding: 10px;
             }
+            #loader {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 32px;
+                height: 32px;
+                margin-top: -16px;
+                margin-left: -16px;
+                background: url("img/wait.gif") no-repeat center;
+                background-size: 32px 32px;
+            }
         </style>
         <script src="vendor/jquery-3.3.1.min.js"></script>
         <script src="vendor/chart.bundle.min.js"></script>
         <script src="index.js"></script>
     </head>
     <body bgcolor="#fff">
+        <div id="loader"></div>
         <canvas id="events" width="400" height="400"></canvas>
         <div id="toggle">toggle</div>
     </body>
