@@ -20,4 +20,8 @@ $(function() {
 
         $("#loader").remove();
     });
+
+    setTimeout(function() {
+        window.location.reload();
+    }, 30 * 60 * 1000);
 });
