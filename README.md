@@ -16,7 +16,7 @@
 
     docker-compose stop api && docker-compose up -d api && docker-compose logs -f --tail=32 api
 
-    docker-compose rm --stop --force api
+    docker-compose stop api && docker-compose up -d --build --force-recreate api && docker-compose logs -f --tail=32 api
 
 ### mongo:
 
@@ -34,4 +34,4 @@
 
 ### update:
 
-    cd ~/projects/questland/api && lol upd && ssh eki@b1.eki.one 'cd questland/api && git pull'
+    cd ~/projects/questland/api && lol upd && ssh eki@b1.eki.one 'cd questland/api && git pull && yarn'

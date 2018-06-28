@@ -7,6 +7,8 @@ services:
         volumes:
             - ./volumes/mongo-data/:/data/db/:rw
         command: --auth
+        ports:
+            - 127.0.0.1:42017:27017
         restart: always
     api:
         build: images/api
@@ -20,7 +22,7 @@ services:
         environment:
             - NODE_PATH=/api
             - NODE_ENV=production
-        command: nodemon --verbose --ext js,json --watch . api.js
+        command: nodemon --verbose --ext js,json --watch /api api.js
         ports:
             - 127.0.0.1:42080:42080
         restart: always
