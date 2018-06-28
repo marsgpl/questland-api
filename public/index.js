@@ -14,7 +14,7 @@ $(function() {
             myChart.data.datasets.forEach(function(ds) {
                 ds.hidden = !ds.hidden;
             });
-            
+
             myChart.update();
         });
 
