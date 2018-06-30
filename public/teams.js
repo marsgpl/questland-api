@@ -75,7 +75,7 @@ $(function() {
                 pointBorderColor: color,
                 pointBackgroundColor: color,
                 pointRadius: 0,
-                pointHitRadius: 5,
+                pointHitRadius: 10,
                 borderWeight: 0,
                 data: points,
                 cubicInterpolationMode: "monotone",
