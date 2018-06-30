@@ -45,7 +45,7 @@
 
     ssh root@b1.eki.one 'rm -rf /home/eki/questland/api/docker/volumes/mongo-data/reforge*'
 
-    cd ~/projects/questland/api/docker/volumes/mongo-data && tar -xvf ~/projects/questland/api/docker/volumes/mongo-data/reforge.tar.gz
+    cd ~/projects/questland/api/docker/volumes/mongo-data && tar -xvf reforge.tar.gz
 
     docker exec questland_mongo_1 mongorestore -v -u reforge -p d0s9hf5SDJgDH83585 --db reforge /data/db/reforge
 

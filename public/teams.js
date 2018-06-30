@@ -25,31 +25,13 @@ $(function() {
         return score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
 
-    $.get("/reforge/api/event?ts=" + Date.now(), function(data) {
+    $.get("/reforge/api/eventTeams?ts=" + Date.now(), function(data) {
         var colors = [
-            "#A8201A",
-            "#EC9A29",
-            "#0F8B8D",
-            "#143642",
-            "#DAD2D8",
-
-            "#A9FFCB",
-            "#B6EEA6",
-            "#C0B298",
-            "#A4778B",
-            "#AA4586",
-
-            "#FCB07E",
-            "#3581B8",
-            "#44AF69",
-            "#F8333C",
-            "#FCAB10",
-
-            "#2B9EB3",
-            "#3E78B2",
-            "#004BA8",
-            "#4A525A",
-            "#24272B",
+            "rgb(230, 45, 45)", // red
+            "rgb(18, 168, 17)", // green
+            "rgb(21, 95, 194)", // blue
+            "rgb(158, 44, 198)", // purple
+            "rgb(11, 165, 186)", // cyan
         ];
 
         var labels = [];
@@ -98,6 +80,10 @@ $(function() {
                 data: points,
                 cubicInterpolationMode: "monotone",
                 borderWidth: 1,
+                meta: {
+                    personal: dataset.personal,
+                    persons: dataset.persons,
+                },
             });
         }
 
@@ -107,7 +93,7 @@ $(function() {
                 responsive: true,
                 title: {
                     display: true,
-                    text: "Personal event score",
+                    text: "Team event score",
                 },
                 animation: {
                     duration: 0, // general animation time
@@ -149,8 +135,43 @@ $(function() {
                 tooltips: {
                     callbacks: {
                         label: function(item, data) {
-                            return data.datasets[item.datasetIndex].label.split("  ")[0]
-                                + ": " + formatScoreCommas(item.yLabel)
+                            let dataset = data.datasets[item.datasetIndex];
+
+                            var strings = [
+                                dataset.label.split("  ")[0] + ": " + formatScoreCommas(item.yLabel),
+                                "",
+                            ];
+
+                            var date = dataset.data[item.index].x;
+                            var dateNumber = Math.round(date.getTime()/1000);
+
+                            var members = [];
+
+                            for ( var name in dataset.meta.personal ) {
+                                members.push({
+                                    name,
+                                    score: parseInt(dataset.meta.personal[name][dateNumber], 10) || 0,
+                                });
+                            }
+
+                            members.sort(function(a, b) {
+                                if ( a.score > b.score ) {
+                                    return -1;
+                                } else if ( a.score < b.score ) {
+                                    return +1;
+                                } else {
+                                    return 0;
+                                }
+                            });
+
+                            for ( var mi=0; mi<members.length; ++mi ) {
+                                strings.push(members[mi].name + ": " + formatScore(members[mi].score));
+                            }
+
+                            strings.push("");
+                            strings.push(dataset.meta.persons + " members");
+
+                            return strings;
                         },
                     },
                 },
@@ -162,14 +183,6 @@ $(function() {
         };
 
         var myChart = new Chart(ctx, config);
-
-        $("#toggle").click(function() {
-            myChart.data.datasets.forEach(function(ds) {
-                ds.hidden = !ds.hidden;
-            });
-
-            myChart.update();
-        });
 
         $("#loader").remove();
     });
