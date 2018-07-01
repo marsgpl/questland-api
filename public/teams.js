@@ -26,14 +26,6 @@ $(function() {
     };
 
     $.get("/reforge/api/eventTeams?ts=" + Date.now(), function(data) {
-        var colors = [
-            "rgb(230, 45, 45)", // red
-            "rgb(18, 168, 17)", // green
-            "rgb(21, 95, 194)", // blue
-            "rgb(158, 44, 198)", // purple
-            "rgb(11, 165, 186)", // cyan
-        ];
-
         var labels = [];
 
         var i;
@@ -44,18 +36,9 @@ $(function() {
 
         var datasets = [];
 
-        var colorN = 0;
-        var color, dataset, points, pk;
+        var dataset, points, pk;
 
         for ( i=0; i<data.datasets.length; ++i ) {
-            color = colors[colorN];
-
-            colorN++;
-
-            if ( colorN >= colors.length ) {
-                colorN = 0;
-            }
-
             dataset = data.datasets[i];
 
             points = [];
@@ -70,10 +53,10 @@ $(function() {
             datasets.push({
                 label: dataset.label,
                 fill: false,
-                borderColor: color,
-                backgroundColor: color,
-                pointBorderColor: color,
-                pointBackgroundColor: color,
+                borderColor: dataset.color,
+                backgroundColor: dataset.color,
+                pointBorderColor: dataset.color,
+                pointBackgroundColor: dataset.color,
                 pointRadius: 0,
                 pointHitRadius: 10,
                 borderWeight: 0,
