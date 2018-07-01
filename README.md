@@ -50,3 +50,17 @@
     docker exec questland_mongo_1 mongorestore -v -u reforge -p d0s9hf5SDJgDH83585 --db reforge /data/db/reforge
 
     rm -rf ~/projects/questland/api/docker/volumes/mongo-data/reforge*
+
+### clone prod data to local (arch)
+
+    ssh root@b1.eki.one 'docker exec questland_mongo_1 mongodump --verbose --out /data/db --uri "mongodb://reforge:d0s9hf5SDJgDH83585@localhost:27017/reforge" && cd /home/eki/questland/api/docker/volumes/mongo-data && tar -zcvf reforge.tar.gz reforge'
+
+    scp root@b1.eki.one:/home/eki/questland/api/docker/volumes/mongo-data/reforge.tar.gz ~/projects/questland/api/docker/volumes
+
+    ssh root@b1.eki.one 'rm -rf /home/eki/questland/api/docker/volumes/mongo-data/reforge*'
+
+    # cd /home/j/projects/questland/api/docker/volumes && mv reforge.tar.gz mongo-data && cd mongo-data && tar -xvf reforge.tar.gz
+
+    docker exec questland_mongo_1 mongorestore -v -u reforge -p d0s9hf5SDJgDH83585 --db reforge /data/db/reforge
+
+    # rm -rf /home/j/projects/questland/api/docker/volumes/mongo-data/reforge*
