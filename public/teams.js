@@ -79,7 +79,7 @@ $(function() {
                 borderWeight: 0,
                 data: points,
                 cubicInterpolationMode: "monotone",
-                borderWidth: 1,
+                borderWidth: 3,
                 meta: {
                     personal: dataset.personal,
                     persons: dataset.persons,
