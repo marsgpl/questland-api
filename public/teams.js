@@ -170,7 +170,12 @@ $(function() {
         $("#loader").remove();
     });
 
+    var now = new Date;
+    var msToReload = (60 - now.getMinutes()) * 61 * 1000;
+
+    if ( window.console ) { console.log("Reload in " + (msToReload/1000/60) + "m"); }
+
     setTimeout(function() {
         window.location.reload();
-    }, 30 * 60 * 1000);
+    }, msToReload);
 });
