@@ -8,48 +8,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
         <meta name="msapplication-navbutton-color" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
-        <style>
-            html, body {
-                margin: 0;
-                padding: 0;
-                border: none;
-                height: 100%;
-            }
-            body {
-                background-color: #fff;
-                font-family: Arial, Sans, Tahoma, Verdana;
-                position: relative;
-                overflow: hidden;
-            }
-            #events {
-                position: absolute;
-                left: 0px;
-                top: 0px;
-                z-index: 1;
-            }
-            #toggle {
-                font-size: 13px;
-                color: #333;
-                position: absolute;
-                top: 0;
-                right: 0;
-                cursor: pointer;
-                user-select: none;
-                z-index: 2;
-                padding: 10px;
-            }
-            #loader {
-                position: absolute;
-                top: 50%;
-                left: 0;
-                right: 0;
-                text-align: center;
-                margin-top: -16px;
-                line-height: 32px;
-                font-size: 14px;
-                color: #555;
-            }
-        </style>
+        <link href="index.css?3" rel="stylesheet">
         <script src="vendor/jquery-3.3.1.min.js"></script>
         <script src="vendor/chart.bundle.min.js"></script>
         <script src="index.js?3"></script>
@@ -58,5 +17,16 @@
         <div id="loader">Loading ...</div>
         <canvas id="events" width="400" height="400"></canvas>
         <div id="toggle">toggle</div>
+
+        <div id="introduce" class="hidden">
+            <div class="shadow">
+                <div class="body">
+                    <div class="title">Name in Questland:</div>
+                    <div class="input">
+                        <input id="nickname" type="text" placeholder="example: Lemix" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -1,0 +1,103 @@
+/**/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-family: Arial, Sans, Tahoma, Verdana;
+    position: relative;
+    overflow: hidden;
+}
+
+#events {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+
+#events.inactive {
+    filter: blur(10px) grayscale(20%);
+}
+
+#toggle {
+    font-size: 13px;
+    color: #333;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    user-select: none;
+    z-index: 2;
+    padding: 10px;
+}
+
+#loader {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-top: -16px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #555;
+}
+
+#introduce {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+#introduce.hidden {
+    display: none;
+}
+
+#introduce .shadow {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: rgba(0,0,0,.1);
+}
+
+#introduce .body {
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 370px;
+    height: 132px;
+    margin-top: -66px;
+    margin-left: -185px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+    padding: 5px 25px 25px 25px;
+    box-sizing: border-box;
+}
+
+#introduce .body .title {
+    font-size: 20px;
+    line-height: 60px;
+    color: #555;
+    text-align: center;
+}
+
+#introduce .body .input input {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 320px;
+    box-sizing: border-box;
+    line-height: 20px;
+    font-size: 16px;
+}

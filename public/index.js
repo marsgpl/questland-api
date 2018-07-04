@@ -1,29 +1,63 @@
 //
 
+var formatScore = function(score) {
+    score = parseInt(score, 10) || 0;
+
+    if ( score < 1000 ) {
+        return score;
+    } else if ( score < 1000000 ) {
+        return Math.floor(score / 100) / 10 + "k";
+    } else {
+        return Math.floor(score / 100000) / 10 + "M";
+    }
+
+    return score;
+};
+
+var formatScoreCommas = function(score) {
+    return (score+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+var getQsParams = function(qs) {
+    qs = (qs || window.location.search).replace(/^\?+/, "").split("&");
+    var kv = {}, pair;
+    for ( let i=0; i<qs.length; ++i ) {
+        pair = qs[i].split("=");
+        kv[pair.shift()] = pair.join("=");
+    }
+    return kv;
+};
+
+var showPrompt = function() {
+    $("#introduce").removeClass("hidden");
+    $("#events").addClass("inactive");
+};
+
+var hidePrompt = function() {
+    $("#introduce").removeClass("hidden");
+    $("#events").addClass("inactive");
+};
+
 $(function() {
+    $("#introduce").on("click", function(e) {
+        if ( $(e.target).hasClass("shadow") ) {
+            $("#introduce").addClass("hidden");
+            $("#events").removeClass("inactive");
+        }
+    });
+
     var htmlCanvas = document.getElementById("events");
     var ctx = htmlCanvas.getContext("2d");
 
     ctx.canvas.width  = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
 
-    var formatScore = function(score) {
-        score = parseInt(score, 10) || 0;
+    var name = getQsParams().name;
 
-        if ( score < 1000 ) {
-            return score;
-        } else if ( score < 1000000 ) {
-            return Math.floor(score / 100) / 10 + "k";
-        } else {
-            return Math.floor(score / 100000) / 10 + "M";
-        }
-
-        return score;
-    };
-
-    var formatScoreCommas = function(score) {
-        return score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    };
+    // if ( !name ) {
+    //     showPrompt();
+    //     $("#nickname").focus();
+    // }
 
     $.get("/reforge/api/event?ts=" + Date.now(), function(data) {
         var colors = [
