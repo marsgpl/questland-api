@@ -1,10 +1,5 @@
 //
 
-var toUTC = function(date) {
-    //date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-    return date;
-};
-
 var formatScore = function(score) {
     score = parseInt(score, 10) || 0;
 
@@ -39,7 +34,7 @@ $(function() {
         var i;
 
         for ( i=0; i<data.labels.length; ++i ) {
-            labels.push(toUTC(new Date(data.labels[i] * 1000)));
+            labels.push(new Date(data.labels[i] * 1000));
         }
 
         var datasets = [];
@@ -53,7 +48,7 @@ $(function() {
 
             for ( pk in dataset.data ) {
                 points.push({
-                    x: toUTC(new Date(pk * 1000)),
+                    x: new Date(pk * 1000),
                     y: dataset.data[pk],
                 })
             }
@@ -65,8 +60,9 @@ $(function() {
                 backgroundColor: dataset.color,
                 pointBorderColor: dataset.color,
                 pointBackgroundColor: dataset.color,
-                pointRadius: 0,
+                pointRadius: 1,
                 pointHitRadius: 10,
+                pointHoverRadius: 3,
                 borderWeight: 0,
                 data: points,
                 cubicInterpolationMode: "monotone",
@@ -120,6 +116,7 @@ $(function() {
                         },
                         ticks: {
                             min: 0,
+                            max: data.yMax * 1.2 - data.yMax * 1.2 % 500000,
                             callback: function(value, index, values) {
                                 return formatScoreCommas(value);
                             },
@@ -127,9 +124,10 @@ $(function() {
                     }],
                 },
                 tooltips: {
+                    mode: "nearest",
                     callbacks: {
                         label: function(item, data) {
-                            let dataset = data.datasets[item.datasetIndex];
+                            var dataset = data.datasets[item.datasetIndex];
 
                             var strings = [
                                 dataset.label.split("  ")[0] + ": " + formatScoreCommas(item.yLabel),
