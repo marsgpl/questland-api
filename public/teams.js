@@ -1,7 +1,7 @@
 //
 
 var treatAsUTC = function(date) {
-    date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
     return date;
 };
 
