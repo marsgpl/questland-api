@@ -60,7 +60,7 @@ $(function() {
                 backgroundColor: dataset.color,
                 pointBorderColor: dataset.color,
                 pointBackgroundColor: dataset.color,
-                pointRadius: 1,
+                pointRadius: 0,
                 pointHitRadius: 10,
                 pointHoverRadius: 3,
                 borderWeight: 0,
