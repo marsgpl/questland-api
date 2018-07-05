@@ -116,7 +116,7 @@ $(function() {
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: "Trophies",
+                            labelString: "Trophies (skulls)",
                         },
                         ticks: {
                             min: 0,

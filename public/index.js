@@ -59,10 +59,10 @@ $(function() {
 
     var name = getQsParams().name;
 
-    // if ( !name ) {
-    //     showPrompt();
-    //     $("#nickname").focus();
-    // }
+    if ( !name ) {
+        showPrompt();
+        $("#nickname").focus();
+    }
 
     var ms = Date.now();
     var tz = (new Date).getTimezoneOffset();
@@ -181,7 +181,7 @@ $(function() {
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: "Trophies",
+                            labelString: "Trophies (skulls)",
                         },
                         ticks: {
                             min: 0,
