@@ -289,7 +289,7 @@ $(function() {
                 backgroundColor: color,
                 pointBorderColor: color,
                 pointBackgroundColor: color,
-                pointRadius: current ? 1 : 0,
+                pointRadius: 0,
                 pointHitRadius: (current || !hasCurrent) ? 10 : 2,
                 pointHoverRadius: (current || !hasCurrent) ? 3 : 1,
                 borderWeight: 0,
