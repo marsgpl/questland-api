@@ -64,7 +64,10 @@ $(function() {
     //     $("#nickname").focus();
     // }
 
-    $.get("/reforge/api/event?ts=" + Date.now(), function(data) {
+    var ms = Date.now();
+    var tz = (new Date).getTimezoneOffset();
+
+    $.get("/reforge/api/event?ms="+ms+"&tz="+tz, function(data) {
         var colors = [
             "#A8201A",
             "#EC9A29",

@@ -30,7 +30,10 @@ $(function() {
     ctx.canvas.width  = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
 
-    $.get("/reforge/api/eventTeams?ts=" + Date.now(), function(data) {
+    var ms = Date.now();
+    var tz = (new Date).getTimezoneOffset();
+
+    $.get("/reforge/api/eventTeams?ms="+ms+"&tz="+tz, function(data) {
         var labels = [];
 
         var i;
