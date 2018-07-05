@@ -59,10 +59,10 @@ $(function() {
 
     var name = getQsParams().name;
 
-    // if ( !name ) {
-    //     showPrompt();
-    //     $("#nickname").focus();
-    // }
+    if ( !name ) {
+        showPrompt();
+        $("#nickname").focus();
+    }
 
     var ms = Date.now();
     var tz = (new Date).getTimezoneOffset();
