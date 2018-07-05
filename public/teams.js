@@ -120,6 +120,9 @@ $(function() {
                         },
                         ticks: {
                             min: 0,
+                            callback: function(value, index, values) {
+                                return formatScoreCommas(value);
+                            },
                         },
                     }],
                 },
