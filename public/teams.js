@@ -1,7 +1,7 @@
 //
 
-var treatAsUTC = function(date) {
-    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+var toUTC = function(date) {
+    //date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
     return date;
 };
 
@@ -36,7 +36,7 @@ $(function() {
         var i;
 
         for ( i=0; i<data.labels.length; ++i ) {
-            labels.push(treatAsUTC(new Date(data.labels[i] * 1000)));
+            labels.push(toUTC(new Date(data.labels[i] * 1000)));
         }
 
         var datasets = [];
@@ -50,7 +50,7 @@ $(function() {
 
             for ( pk in dataset.data ) {
                 points.push({
-                    x: treatAsUTC(new Date(pk * 1000)),
+                    x: toUTC(new Date(pk * 1000)),
                     y: dataset.data[pk],
                 })
             }
