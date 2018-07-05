@@ -378,14 +378,19 @@ $(function() {
 
                             for ( var i=0; i<ranked.length; ++i ) {
                                 if ( ranked[i].di == item.datasetIndex ) {
-                                    rank = i+1;
+                                    if ( ranked[i].v == 0 ) {
+                                        rank = "N/A";
+                                    } else {
+                                        rank = "#"+(i+1);
+                                    }
+
                                     break;
                                 }
                             }
 
                             return [
                                 userAndScore,
-                                "Rank #" + rank,
+                                "Rank " + rank,
                             ];
                         },
                     },
