@@ -1,5 +1,28 @@
 //
 
+var treatAsUTC = function(date) {
+    date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+    return date;
+};
+
+var formatScore = function(score) {
+    score = parseInt(score, 10) || 0;
+
+    if ( score < 1000 ) {
+        return score;
+    } else if ( score < 1000000 ) {
+        return Math.floor(score / 100) / 10 + "k";
+    } else {
+        return Math.floor(score / 100000) / 10 + "M";
+    }
+
+    return score;
+};
+
+var formatScoreCommas = function(score) {
+    return (score+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 $(function() {
     var htmlCanvas = document.getElementById("events");
     var ctx = htmlCanvas.getContext("2d");
@@ -7,31 +30,13 @@ $(function() {
     ctx.canvas.width  = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
 
-    var formatScore = function(score) {
-        score = parseInt(score, 10) || 0;
-
-        if ( score < 1000 ) {
-            return score;
-        } else if ( score < 1000000 ) {
-            return Math.floor(score / 100) / 10 + "k";
-        } else {
-            return Math.floor(score / 100000) / 10 + "M";
-        }
-
-        return score;
-    };
-
-    var formatScoreCommas = function(score) {
-        return score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    };
-
     $.get("/reforge/api/eventTeams?ts=" + Date.now(), function(data) {
         var labels = [];
 
         var i;
 
         for ( i=0; i<data.labels.length; ++i ) {
-            labels.push(new Date(data.labels[i] * 1000));
+            labels.push(treatAsUTC(new Date(data.labels[i] * 1000)));
         }
 
         var datasets = [];
@@ -45,7 +50,7 @@ $(function() {
 
             for ( pk in dataset.data ) {
                 points.push({
-                    x: new Date(pk * 1000),
+                    x: treatAsUTC(new Date(pk * 1000)),
                     y: dataset.data[pk],
                 })
             }
