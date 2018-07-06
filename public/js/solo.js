@@ -54,6 +54,11 @@ var submitPrompt = function(uid) {
     }
 };
 
+var setNicknameBg = function(userName) {
+    var curr = $("#nickname").val();
+    $("#nicknamebg").text(curr + userName.substr(curr.length)).show();
+};
+
 var suggest = function(match = []) {
     suggest.first = null;
     suggest.match = match;
@@ -72,10 +77,15 @@ var suggest = function(match = []) {
             if ( !suggest.first ) {
                 suggest.first = userId;
             }
+
+            if ( (i == suggest.cursor) || (suggest.cursor < 0 && suggest.first == userId) ) {
+                setNicknameBg(userName);
+            }
         }
     } else {
         $("#suggest").hide().empty();
         $("#submit").hide();
+        $("#nicknamebg").hide();
     }
 };
 
@@ -85,6 +95,7 @@ var resuggest = function() {
     for ( var i=0; i<nodes.length; ++i ) {
         if ( i===suggest.cursor ) {
             $(nodes[i]).addClass("cur");
+            setNicknameBg(suggest.membersOriginal[suggest.match[i]]);
         } else {
             $(nodes[i]).removeClass("cur");
         }
@@ -92,7 +103,13 @@ var resuggest = function() {
 };
 
 var autocompletePrompt = function() {
-    var value = $("#nickname").val().replace(nameFilter, "").toLowerCase();
+    var value = $("#nickname").val().replace(nameFilter, "");
+
+    if ( value != $("#nickname").val() ) {
+        $("#nickname").val(value);
+    }
+
+    value = value.toLowerCase();
 
     if ( value === autocompletePrompt.value ) {
         return;
