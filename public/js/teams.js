@@ -80,7 +80,7 @@ $(function() {
                 responsive: true,
                 title: {
                     display: true,
-                    text: "Team event score",
+                    text: "Teams event score",
                 },
                 animation: {
                     duration: 0, // general animation time
