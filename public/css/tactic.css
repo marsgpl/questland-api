@@ -16,7 +16,7 @@ body {
 }
 
 .rules {
-    max-width: 680px;
+    max-width: 640px;
     background: #fff;
     margin: 30px auto;
     border-radius: 2px;
@@ -32,6 +32,7 @@ body {
     background-size: 64px;
     padding-left: 74px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .title .back {
@@ -62,8 +63,29 @@ body {
     color: #666;
 }
 
-@media (max-width:680px) {
+ul {
+    margin: 0;
+    padding: 0 0 0 35px;
+}
+
+li {
+    min-height: 32px;
+    margin-bottom: 20px;
+}
+
+li a {
+    text-decoration: none;
+    color: #C32727;
+    float: right;
+}
+
+li div {
+    margin-right: 106px;
+}
+
+@media (max-width:640px) {
     .rules {
         margin: 0 auto;
+        padding: 15px;
     }
 }
