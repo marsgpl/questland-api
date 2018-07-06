@@ -1,0 +1,100 @@
+/**/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    background: #fff url("../img/bg.jpg") no-repeat center;
+    background-size: cover;
+    font-family: Arial, Sans, Tahoma, Verdana;
+    position: relative;
+}
+
+.rules {
+    max-width: 640px;
+    background: #fff;
+    margin: 30px auto;
+    border-radius: 2px;
+    box-shadow: 0 0 1px rgba(0,0,0,.2);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.title {
+    height: 74px;
+    background: url("../img/logo.png") no-repeat -5px 5px;
+    background-size: 64px;
+    padding-left: 64px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.title .back {
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: -5px;
+}
+
+.title h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 28px;
+    line-height: 36px;
+    color: #333;
+    padding-top: 9px;
+}
+
+.title h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: -6px;
+    color: #666;
+}
+
+ul {
+    margin: 0;
+    padding: 0 0 0 25px;
+}
+
+li {
+    min-height: 32px;
+    margin-bottom: 20px;
+}
+
+li a {
+    text-decoration: none;
+    color: #C32727;
+    float: right;
+}
+
+li div {
+    margin-right: 106px;
+}
+
+.also {
+    margin-top: 40px;
+}
+
+.also div {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #5E8DDA;
+}
+
+@media (max-width:640px) {
+    .rules {
+        margin: 0 auto;
+        padding: 15px;
+    }
+}

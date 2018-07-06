@@ -15,7 +15,7 @@ services:
         volumes:
             - ./../lib/:/api/lib/:ro
             - ./../node_modules/:/api/node_modules/:ro
-            - ./../public/:/api/public/:ro
+            - ./../prod/:/api/public/:ro
             - ./../api.js:/api/api.js:ro
             - ./../conf.json:/api/conf.json:ro
             - ./../package.json:/api/package.json:ro
