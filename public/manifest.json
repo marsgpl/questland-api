@@ -12,7 +12,7 @@
         {
             "src": "img/logo.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "128x128"
         }
     ]
 }
