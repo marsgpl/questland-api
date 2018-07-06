@@ -56,7 +56,7 @@ var submitPrompt = function(uid) {
 
 var setNicknameBg = function(userName) {
     var curr = $("#nickname").val();
-    $("#nicknamebg").text(curr + userName.substr(curr.length)).show();
+    $("#nicknamebg").val(curr + userName.substr(curr.length)).show();
 };
 
 var suggest = function(match = []) {

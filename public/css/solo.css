@@ -92,7 +92,7 @@ body {
     user-select: none;
 }
 
-#nickname {
+#nickname, #nicknamebg {
     margin: 0;
     padding: 10px;
     border: 1px solid #ddd;
@@ -106,20 +106,16 @@ body {
     position: relative;
     z-index: 5;
     color: #333;
+    display: block;
 }
 
 #nicknamebg {
-    z-index: 4;
-    padding: 10px;
-    width: 320px;
-    box-sizing: border-box;
-    line-height: 19px;
-    height: 41px;
-    font-size: 16px;
+    border: 1px solid #fff;
+    background-color: #fff;
     position: absolute;
-    top: 1px;
-    left: 1px;
+    z-index: 4;
     color: #aaa;
+    display: block;
 }
 
 #introduce .body .input {
