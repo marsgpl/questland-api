@@ -382,7 +382,7 @@ $(function() {
 
                             for ( var di=0; di<data.datasets.length; ++di ) {
                                 ranked.push({
-                                    v: data.datasets[di].data[item.index].y,
+                                    v: data.datasets[di].data[item.index] && data.datasets[di].data[item.index].y || 0,
                                     di,
                                 })
                             }
