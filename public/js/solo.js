@@ -306,7 +306,7 @@ $(function() {
             }
 
             datasets.push({
-                label: dataset.label + (current ? "  #"+(i+1) : ""),
+                label: dataset.label + (current ? "  Rank #"+(i+1) : ""),
                 fill: false,
                 borderColor: color,
                 backgroundColor: color,
