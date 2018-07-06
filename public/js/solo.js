@@ -304,7 +304,7 @@ $(function() {
             }
 
             datasets.push({
-                label: (current ? "#"+i+" " : "") + dataset.label,
+                label: (current ? "#"+i+"  " : "") + dataset.label,
                 fill: false,
                 borderColor: color,
                 backgroundColor: color,
