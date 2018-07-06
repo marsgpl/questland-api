@@ -36,7 +36,7 @@
 
 ### update:
 
-    cd ~/projects/questland/api && lol upd && ssh eki@b1.eki.one 'cd questland/api && git pull && yarn'
+    cd ~/projects/questland/api && node uglifier.run.js && lol upd && ssh eki@b1.eki.one 'cd questland/api && git pull && yarn'
 
 ### clone prod data to local
 
