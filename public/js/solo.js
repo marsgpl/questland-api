@@ -33,11 +33,13 @@ var getQsParams = function(qs) {
 var showPrompt = function() {
     $("#introduce").removeClass("hidden");
     $("#events").addClass("inactive");
+    $("#toggle").hide();
 };
 
 var hidePrompt = function() {
     $("#introduce").addClass("hidden");
     $("#events").removeClass("inactive");
+    $("#toggle").show();
 };
 
 var submitPrompt = function(uid) {
