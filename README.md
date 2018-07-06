@@ -65,3 +65,9 @@
     docker exec questland_mongo_1 mongorestore -v -u reforge -p d0s9hf5SDJgDH83585 --db reforge /data/db/reforge
 
     # rm -rf /home/j/projects/questland/api/docker/volumes/mongo-data/reforge*
+
+# Questland
+
+    Hi! I coordinate our team this week.
+    Check out our tactic page: questland.net/tactic
+    Also check team score here: questland.net/teams

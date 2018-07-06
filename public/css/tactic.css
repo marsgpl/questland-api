@@ -25,9 +25,9 @@ body {
 
 .title {
     height: 74px;
-    background: url("../img/logo.png") no-repeat 5px 5px;
+    background: url("../img/logo.png") no-repeat -5px 5px;
     background-size: 64px;
-    padding-left: 74px;
+    padding-left: 64px;
     position: relative;
     margin-bottom: 30px;
 }
@@ -39,7 +39,7 @@ body {
     display: block;
     position: absolute;
     top: 5px;
-    left: 5px;
+    left: -5px;
 }
 
 .title h1 {
@@ -62,7 +62,7 @@ body {
 
 ul {
     margin: 0;
-    padding: 0 0 0 35px;
+    padding: 0 0 0 25px;
 }
 
 li {
