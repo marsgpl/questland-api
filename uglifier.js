@@ -7,9 +7,19 @@ const fs = require("mz/fs")
 const path = require("path")
 
 const UGLIFY_BIN = `${__dirname}/node_modules/uglify-es/bin/uglifyjs`
+const UGLIFYCSS_BIN = `${__dirname}/node_modules/uglifycss/uglifycss`
+const UGLIFYHTML_BIN = `node ${__dirname}/node_modules/html-minifier/cli.js`
 
 const EXT_JS = {
     ".js": true,
+}
+
+const EXT_CSS = {
+    ".css": true,
+}
+
+const EXT_HTML = {
+    ".html": true,
 }
 
 const IGNORE = {
@@ -35,10 +45,14 @@ let scan = async function(baseFrom, baseTo, current, cache) {
         })
 
         await Promise.all(promises)
-    } else if ( !EXT_JS[ext] || IGNORE[ext2+ext] ) { // static file
-        cache.staticFiles.push(current)
-    } else { // js
+    } else if ( EXT_JS[ext] && !IGNORE[ext2+ext] ) {
         cache.jsFiles.push(current)
+    } else if ( EXT_CSS[ext] && !IGNORE[ext2+ext] ) {
+        cache.cssFiles.push(current)
+    } else if ( EXT_HTML[ext] && !IGNORE[ext2+ext] ) {
+        cache.htmlFiles.push(current)
+    } else { // static file
+        cache.staticFiles.push(current)
     }
 }
 
@@ -47,6 +61,8 @@ module.exports = async function(from, to) {
         dirs: [],
         staticFiles: [],
         jsFiles: [],
+        cssFiles: [],
+        htmlFiles: [],
     }
 
     await scan(from, to, "", cache)
@@ -72,6 +88,28 @@ module.exports = async function(from, to) {
             "--mangle",
             "--output", to+file,
             "--", from+file,
+        ].join(" ")))
+    })
+
+    cache.cssFiles.forEach(file => {
+        promises.push(cp.exec([
+            UGLIFYCSS_BIN,
+            "--max-line-len", 128,
+            "--ugly-comments",
+            "--output", to+file,
+            from+file,
+        ].join(" ")))
+    })
+
+    cache.htmlFiles.forEach(file => {
+        promises.push(cp.exec([
+            UGLIFYHTML_BIN,
+            "--max-line-length", 128,
+            "--collapse-whitespace",
+            "--collapse-inline-tag-whitespace",
+            "--remove-comments",
+            "--output", to+file,
+            from+file,
         ].join(" ")))
     })
 
