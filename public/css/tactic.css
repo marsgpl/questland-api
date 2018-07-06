@@ -83,6 +83,18 @@ li div {
     margin-right: 106px;
 }
 
+.also {
+    margin-top: 40px;
+}
+
+.also div {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #5E8DDA;
+}
+
 @media (max-width:640px) {
     .rules {
         margin: 0 auto;
