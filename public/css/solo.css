@@ -139,6 +139,7 @@ body {
     box-sizing: border-box;
     border: 1px solid #ddd;
     padding: 6px 0;
+    z-index: 2;
 }
 
 #suggest .name {
@@ -161,4 +162,18 @@ body {
 
 #suggest .name.cur {
     background-color: #ddd;
+}
+
+#submit {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: #5E8DDA url("../img/rw.64.png") no-repeat center;
+    background-size: 21px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
 }

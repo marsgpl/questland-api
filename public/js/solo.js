@@ -61,6 +61,7 @@ var suggest = function(match = []) {
 
     if ( suggest.match.length ) {
         $("#suggest").show().empty();
+        $("#submit").show();
 
         for ( var i=0; i<suggest.match.length; ++i ) {
             var userId = suggest.match[i];
@@ -74,6 +75,7 @@ var suggest = function(match = []) {
         }
     } else {
         $("#suggest").hide().empty();
+        $("#submit").hide();
     }
 };
 
@@ -143,6 +145,8 @@ $(function() {
             });
 
             $("#introduce .body .close").on("click", hidePrompt);
+
+            $("#submit").on("click", function() { submitPrompt(); });
 
             $(window).on("keydown", function(e) {
                 var key = e.keyCode || e.which;
