@@ -116,7 +116,9 @@ $(function() {
                         },
                         ticks: {
                             min: 0,
-                            //max: (data.yMax * 1.2) || 1000,
+                            max: data.yMax,
+                            stepSize: data.stepSize,
+                            maxTicksLimit: data.maxTicksLimit,
                             callback: function(value, index, values) {
                                 return formatScore(value);
                             },
