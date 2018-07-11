@@ -364,7 +364,7 @@ $(function() {
                         },
                         ticks: {
                             min: 0,
-                            max: (data.yMax * 1.1 - data.yMax * 1.1 % ((data.yMax/9) % 500000)) || 1000,
+                            max: (data.yMax * 1.2) || 1000,
                             callback: function(value, index, values) {
                                 return formatScore(value);
                             },
