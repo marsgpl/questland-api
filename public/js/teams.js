@@ -116,7 +116,7 @@ $(function() {
                         },
                         ticks: {
                             min: 0,
-                            max: (data.yMax * 1.2 - data.yMax * 1.2 % 500000) || 1000000,
+                            max: (data.yMax * 1.2 - data.yMax * 1.2 % 500000) || 1000,
                             callback: function(value, index, values) {
                                 return formatScore(value);
                             },
