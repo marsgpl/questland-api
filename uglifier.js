@@ -94,7 +94,7 @@ module.exports = async function(from, to) {
     cache.cssFiles.forEach(file => {
         promises.push(cp.exec([
             UGLIFYCSS_BIN,
-            "--max-line-len", 128,
+            "--max-line-len", 1024,
             "--ugly-comments",
             "--output", to+file,
             from+file,
@@ -104,7 +104,7 @@ module.exports = async function(from, to) {
     cache.htmlFiles.forEach(file => {
         promises.push(cp.exec([
             UGLIFYHTML_BIN,
-            "--max-line-length", 128,
+            "--max-line-length", 1024,
             "--collapse-whitespace",
             "--collapse-inline-tag-whitespace",
             "--remove-comments",
