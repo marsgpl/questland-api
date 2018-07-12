@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    background: #fff url("../img/bg.jpg") no-repeat center;
+    background: #fff url("/img/bg.jpg") no-repeat center;
     background-size: cover;
     font-family: Arial, Sans, Tahoma, Verdana;
     position: relative;
@@ -32,7 +32,7 @@ h1 {
 .banner {
     width: 128px;
     height: 128px;
-    background: url("../img/logo.png") no-repeat center;
+    background: url("/img/logo.png") no-repeat center;
     background-size: 128px;
     margin: 0 auto;
 }
@@ -46,7 +46,7 @@ h1 {
     padding: 6px 10px 6px 30px;
     line-height: 20px;
     vertical-align: middle;
-    background: url("../img/r.64.png") no-repeat 9px 7px;
+    background: url("/img/r.64.png") no-repeat 9px 7px;
     background-size: 16px;
 }
 

@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-    background: #fff url("../img/bg.jpg") no-repeat center;
+    background: #fff url("/img/bg.jpg") no-repeat center;
     background-size: cover;
     font-family: Arial, Sans, Tahoma, Verdana;
     position: relative;
@@ -25,7 +25,7 @@ body {
 
 .title {
     height: 74px;
-    background: url("../img/logo.png") no-repeat -5px 5px;
+    background: url("/img/logo.png") no-repeat -5px 5px;
     background-size: 64px;
     padding-left: 64px;
     position: relative;
