@@ -60,32 +60,29 @@ body {
     color: #666;
 }
 
-ul {
-    margin: 0;
-    padding: 0 0 0 25px;
+.section .fail,
+.section .success {
+    line-height: 100px;
+    color: #C10000;
+    font-weight: bold;
+    font-size: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 20px;
 }
 
-li {
-    min-height: 32px;
-    margin-bottom: 20px;
+.section .success {
+    color: #009E02;
 }
 
-li a {
-    text-decoration: none;
-    color: #C32727;
-    float: right;
+.section .failimg {
+    vertical-align: middle;
+    display: inline-block;
 }
 
-li div {
-    margin-right: 106px;
-}
-
-.also {
-    margin-top: 40px;
-}
-
-.also div {
-    margin-bottom: 10px;
+.section .tip {
+    color: #666;
+    font-size: 12px;
 }
 
 a {
