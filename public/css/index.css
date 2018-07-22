@@ -50,6 +50,25 @@ h1 {
     background-size: 16px;
 }
 
+.links .link.back {
+    background: none;
+    opacity: .5;
+    position: relative;
+}
+
+.links .link.back::after {
+  content: "";
+  background: url("/img/l.64.png") no-repeat 9px 7px;
+  background-size: 16px;
+  opacity: .5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 .links a {
     text-decoration: none;
     color: #333;

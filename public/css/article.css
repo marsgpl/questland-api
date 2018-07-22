@@ -24,6 +24,10 @@ body {
     box-sizing: border-box;
 }
 
+.section {
+    margin-bottom: 20px;
+}
+
 .title {
     height: 74px;
     background: url("/img/logo.png") no-repeat -5px 5px;
@@ -61,36 +65,90 @@ body {
     color: #666;
 }
 
-ul {
-    margin: 0;
-    padding: 0 0 0 25px;
+.fail, .success {
+    line-height: 100px;
+    color: #C10000;
+    font-weight: bold;
+    font-size: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 20px;
 }
 
-li {
-    min-height: 32px;
-    margin-bottom: 20px;
+.success {
+    color: #009E02;
 }
 
-li a {
-    text-decoration: none;
-    color: #C32727;
-    float: right;
+.failimg {
+    vertical-align: middle;
+    display: inline-block;
 }
 
-li div {
-    margin-right: 106px;
-}
-
-.also {
-    margin-top: 40px;
-}
-
-.also div {
-    margin-bottom: 10px;
+.tip {
+    color: #999;
 }
 
 a {
     color: #5E8DDA;
+}
+
+ul {
+    margin: 0;
+    padding: 20px 0 20px 30px;
+}
+
+ul.with-imgs > li {
+    min-height: 32px;
+    margin-bottom: 20px;
+}
+
+ul.with-imgs ul {
+    padding: 16px 0 0 10px;
+}
+
+ul.with-imgs > li a.right {
+    text-decoration: none;
+    color: #C32727;
+    float: right;
+    height: 32px;
+    display: block;
+}
+
+ul.with-imgs > li a.right img {
+    height: 32px;
+    display: block;
+}
+
+ul.with-imgs > li .text {
+    margin-right: 106px;
+}
+
+ul.imgleft {
+    list-style: none;
+    padding: 16px 0 20px 20px;
+}
+
+ul.imgleft li {
+    line-height: 32px;
+    margin-top: 4px;
+    padding: 0;
+    height: 32px;
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+ul.imgleft li a {
+    height: 32px;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+ul.imgleft li a img {
+    height: 32px;
+    display: block;
 }
 
 @media (max-width:640px) {

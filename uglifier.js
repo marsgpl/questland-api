@@ -33,6 +33,8 @@ let scan = async function(baseFrom, baseTo, current, cache) {
     let ext = path.extname(from)
     let ext2 = path.extname(path.basename(from, ext))
 
+    if ( current.match(/DS_Store/i) ) { return }
+
     if ( !ext ) { // dir
         cache.dirs.push(to)
 
@@ -104,7 +106,7 @@ module.exports = async function(from, to) {
     cache.htmlFiles.forEach(file => {
         promises.push(cp.exec([
             UGLIFYHTML_BIN,
-            "--max-line-length", 1024,
+            "--max-line-length", 4096,
             "--collapse-whitespace",
             "--collapse-inline-tag-whitespace",
             "--remove-comments",
